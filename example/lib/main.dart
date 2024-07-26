@@ -81,27 +81,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     clearIcon: const Icon(Icons.reddit),
                     onOptionSelected: (options) {},
                     options: <ValueItem<User>>[
-                      ValueItem(
-                          label: 'Option 1',
-                          value: User(name: 'User 1', id: 1)),
-                      ValueItem(
-                          label: 'Option 2',
-                          value: User(name: 'User 2', id: 2)),
-                      ValueItem(
-                          label: 'Option 3',
-                          value: User(name: 'User 3', id: 3)),
-                      ValueItem(
-                          label: 'Option 4',
-                          value: User(name: 'User 4', id: 4)),
-                      ValueItem(
-                          label: 'Option 5',
-                          value: User(name: 'User 5', id: 5)),
+                      ValueItem(label: 'Option 1', value: User(name: 'User 1', id: 1)),
+                      ValueItem(label: 'Option 2', value: User(name: 'User 2', id: 2)),
+                      ValueItem(label: 'Option 3', value: User(name: 'User 3', id: 3)),
+                      ValueItem(label: 'Option 4', value: User(name: 'User 4', id: 4)),
+                      ValueItem(label: 'Option 5', value: User(name: 'User 5', id: 5)),
                     ],
                     maxItems: 4,
-                    singleSelectItemStyle: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
-                    chipConfig: const ChipConfig(
-                        wrapType: WrapType.wrap, backgroundColor: Colors.red),
+                    singleSelectItemStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    chipConfig: const ChipConfig(wrapType: WrapType.wrap, backgroundColor: Colors.red),
                     optionTextStyle: const TextStyle(fontSize: 16),
                     selectedOptionIcon: const Icon(
                       Icons.check_circle,
@@ -114,6 +102,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     selectedOptionTextColor: Colors.blue,
                     dropdownMargin: 2,
                     onOptionRemoved: (index, option) {},
+                    additionalWidget: Container(
+                      color: Colors.red,
+                      width: 50,
+                      height: 40,
+                    ),
                   ),
                   const SizedBox(
                     height: 50,
@@ -136,8 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         onPressed: () {
                           setState(() {
                             _selectedOptions.clear();
-                            _selectedOptions
-                                .addAll(_controller.selectedOptions);
+                            _selectedOptions.addAll(_controller.selectedOptions);
                           });
                         },
                         child: const Text('Get Selected Options'),
